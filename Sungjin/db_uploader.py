@@ -13,4 +13,8 @@ CSV_PATH_PRODUCTS = './starbucks_drink.csv'
 with open(CSV_PATH_PRODUCTS) as in_file:
     data_reader = csv.reader(in_file)
     for row in data_reader:
-        print(row)
+        if row[0]:
+            menu_name = row[0]
+            image_url = row[1]
+            Drinks.objects.create(name = menu_name, img_url =  image_url)
+
