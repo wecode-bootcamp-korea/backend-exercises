@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import my_settings
-DATABASES = my_settings.DATABASES
 from pathlib import Path
+import my_settings
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -38,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders'
+    'corsheaders',
+    'starbucks'
 ]
 
 MIDDLEWARE = [
@@ -75,14 +78,19 @@ WSGI_APPLICATION = 'donghyun.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+DATABASES = my_settings.DATABASES
+'''
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'StarBucks',
+        'USER':'gorusair'
+        'PASSWORD':'9087poiu',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+        },
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
